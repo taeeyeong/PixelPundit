@@ -1,0 +1,2 @@
+llama-index==0.6.1
+transformers==4.29.0
