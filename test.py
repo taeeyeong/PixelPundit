@@ -8,7 +8,10 @@ from llama_index import (
     PromptHelper, 
     ServiceContext)
 from langchain import OpenAI
-os.environ["OPENAI_API_KEY"] = os.getenv('OPENAI_API_KEY')
+from dotenv import load_dotenv
+load_dotenv()
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 
 SimpleDirectoryReader = download_loader("SimpleDirectoryReader")
@@ -17,7 +20,7 @@ documents = loader.load_data()
 
 
 # define LLM
-llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-embedding-ada-002-v2"))
+llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="gpt-3.5-turbo"))
 
 max_input_size = 2048
 num_output = 256
