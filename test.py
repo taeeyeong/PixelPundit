@@ -7,7 +7,7 @@ from llama_index import (
     GPTKeywordTableIndex,
     PromptHelper,
     ServiceContext)
-import os
+from langchain import OpenAI
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -20,8 +20,7 @@ documents = loader.load_data()
 
 
 # define LLM
-llm_predictor = LLMPredictor(llm=OpenAI(
-    temperature=0, model_name="gpt-3.5-turbo"))
+llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="gpt-3.5-turbo"))
 
 max_input_size = 4095
 num_output = 256
