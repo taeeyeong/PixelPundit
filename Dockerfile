@@ -4,7 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install -r requirements.txt && pip cache purge && \
+RUN apt-get update -y && \
+    apt-get install -y xsel && \
+    pip install -r requirements.txt && pip cache purge && \
     cd react_frontend && npm install && npm install -g serve && cd .. 
 
 # Flask
