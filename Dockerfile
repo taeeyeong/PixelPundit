@@ -11,4 +11,4 @@ RUN apt-get update -y && \
 
 # Flask
 CMD ["sh", "launch_app.sh"]
-EXPOSE 5601 3000
+EXPOSE 5601 3000 5602
